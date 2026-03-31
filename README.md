@@ -31,6 +31,12 @@ You will need
 No known issues
 
 ## How to obtain support
+For complete documentation on these provisioning jobs, refer to the SAP Help portal:
+1) [SAP Concur Source System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/sap-concur?locale=en-US&version=LATEST)
+2) [Local Identity Directory Source System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/local-identity-directory?locale=en-US&version=LATEST)
+3) [Local Identity Directory Target System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-local-identity-directory?locale=en-US&version=LATEST)
+4) [SAP Concur Target System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-concur?locale=en-US&version=LATEST)
+
 If you need additional support with provisioning jobs, create a case with SAP Support using the component "BC-IAM-IPS". See [note 1296527](https://me.sap.com/notes/1296527/E) for additional details about how to create a support case.
 
 ## Contributing
