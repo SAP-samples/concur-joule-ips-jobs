@@ -1,0 +1,137 @@
+{
+    "connectorTypeString": "CONCUR",
+    "accessMode": "READ",
+    "destinationName": "",
+    "alias": "Concur_Source",
+    "gitAllowedExpressions": [],
+    "gitDisallowedExpressions": [],
+    "emailSubscribers": [],
+    "name": "Concur_Source",
+    "state": "ENABLED",
+    "systemManagementType": "CUSTOMER_MANAGED",
+    "properties": {
+        "Authentication": "BasicAuthentication",
+        "concur.api.version": "3",
+        "concur.company.id": "UPDATE_ME",
+        "concur.datacenter": "US2",
+        "concur.group.filter": "displayName eq \"Joule Pilot User\"",
+        "concur.user.filter": "userName eq \"test.user1@example.com.uat\" or userName eq \"test.user2@example.com.uat\"",
+        "ips.trace.failed.entity.content": "true",
+        "ips.trace.updated.entity": "true",
+        "ips.trace.updated.entity.content": "true",
+        "ips.trace.created.entity": "true",
+        "ips.trace.skipped.entity": "true",
+        "ips.trace.skipped.entity.content": "true",
+        "ProxyType": "Internet",
+        "Type": "HTTP"
+    },
+    "encryptedProperties": {
+        "concur.authorization.code": null
+    },
+    "automaticOutboundCertificateRenew": false,
+    "transformationChanged": true,
+    "readTransformationChanged": false,
+    "writeTransformationChanged": false,
+    "fromImport": false,
+    "transformation": {
+        "user": {
+            "skipOperations": [
+                "delete"
+            ],
+            "condition": "!($.userName =~ /^cteadmin@.*/ || $.userName =~ /^concur_admin@.*/)",
+            "mappings": [
+                {
+                    "sourcePath": "$.id",
+                    "targetVariable": "entityIdSourceSystem"
+                },
+                {
+                    "sourcePath": "$.schemas",
+                    "preserveArrayWithSingleElement": true,
+                    "targetPath": "$.schemas"
+                },
+                {
+                    "sourcePath": "$.userName",
+                    "targetPath": "$.userName",
+                    "functions": [
+                        {
+                            "function": "replaceString",
+                            "target": ".uat",
+                            "replacement": ""
+                        }
+                    ],
+                    "correlationAttribute": true
+                },
+                {
+                    "sourcePath": "$.name",
+                    "targetPath": "$.name"
+                },
+                {
+                    "targetPath": "$.name.honorificPrefix",
+                    "type": "remove"
+                },
+                {
+                    "sourcePath": "$.active",
+                    "targetPath": "$.active"
+                },
+                {
+                    "sourcePath": "$.emails",
+                    "preserveArrayWithSingleElement": true,
+                    "optional": true,
+                    "targetPath": "$.emails"
+                },
+                {
+                    "targetPath": "$.emails[*].notifications",
+                    "type": "remove"
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                    "optional": true,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']"
+                }
+            ]
+        },
+        "group": {
+            "mappings": [
+                {
+                    "sourcePath": "$.id",
+                    "targetVariable": "entityIdSourceSystem"
+                },
+                {
+                    "sourcePath": "$.schemas",
+                    "targetPath": "$.schemas",
+                    "preserveArrayWithSingleElement": true
+                },
+                {
+                    "sourcePath": "$.displayName",
+                    "targetPath": "$.displayName"
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['type']",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['type']",
+                    "optional": true
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['supportedOperations']",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['supportedOperations']",
+                    "optional": true
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['externalName']",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['externalName']",
+                    "optional": true
+                },
+                {
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['applicationId']",
+                    "condition": "'%ips.application.id%' !== 'null'",
+                    "constant": "%ips.application.id%"
+                },
+                {
+                    "sourcePath": "$.members",
+                    "targetPath": "$.members",
+                    "optional": true,
+                    "preserveArrayWithSingleElement": true
+                }
+            ]
+        }
+    }
+}
