@@ -23,7 +23,7 @@ Enter the Company UUID value in the concur.company.id property, and enter the Co
 
 By default, the Concur Source job also has a property called concur.user.filter with some dummy login ID values in it. If you only want to test with a few users initially, you can replace the dummy login ID values with real login IDs from your Concur site (include the .uat if you're working in a sandbox environment), and only those users will be included when the provisioning job runs. If you want to sync all users, then delete this property completely.
 
-The Local Identity Source job includes a property called idds.user.filter defaulted to a value of groups.display eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur.
+The Local Identity Source job includes a property called idds.user.filter defaulted to a value of groups.display eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur. This property can be deleted if you are not using Joule Pilot Mode.
 
 
 !!!IMPORTANT!!!
