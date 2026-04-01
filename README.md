@@ -16,7 +16,9 @@ After importing the both the Concur source and target jobs, there are two proper
 2) concur.authorization.code
 
 The values needed for these fields can be obtained by logging into Concur with an admin user and navigating to Administation -> Company -> Authentication Admin and then clicking on Company Request Token. Enter 
+
 5bea7d57-6bc5-45ba-b5cf-91f04940fbf2 
+
 in the App ID field and click Submit, and take note of the resulting Company UUID and Company Request Token Values.
 Enter the Company UUID value in the concur.company.id property, and enter the Company Request Token Value in the concur.authorization.code value.
 
