@@ -51,7 +51,6 @@
                     "sourcePath": "$.emails",
                     "preserveArrayWithSingleElement": true,
                     "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['emails']",
-                    "scope": "createEntity",
                     "functions": [
                         {
                             "function": "putIfAbsent",
@@ -113,8 +112,7 @@
                 },
                 {
                     "constant": true,
-                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['mailVerified']",
-                    "scope": "createEntity"
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['mailVerified']"
                 },
                 {
                     "constant": "enabled",
