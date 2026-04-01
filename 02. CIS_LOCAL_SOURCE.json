@@ -17,7 +17,7 @@
         "ips.trace.skipped.entity": "true",
         "ips.trace.skipped.entity.content": "true",
         "idds.group.filter": "displayName eq \"Joule Pilot User\"",
-        "idds.user.filter": "userName eq \"test.user1@example.com\" or userName eq \"test.user2@example.com\""
+        "idds.user.filter": "groups.display eq \"Joule Pilot User\""
     },
     "encryptedProperties": {},
     "automaticOutboundCertificateRenew": false,
