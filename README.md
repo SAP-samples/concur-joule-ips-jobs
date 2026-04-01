@@ -1,9 +1,8 @@
 # SAP Cloud Identity Services - IPS Jobs for SAP Concur
 <!-- Please include descriptive title -->
 
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/concur-joule-ips-jobs)](https://github.com/SAP-samples/concur-joule-ips-jobs)
--->
+[![REUSE status](https://api.reuse.software/badge/github.com/sap-samples/concur-joule-ips-jobs)](https://api.reuse.software/info/github.com/sap-samples/concur-joule-ips-jobs)
+
 
 ## Description
 <!-- Please include SEO-friendly description -->
