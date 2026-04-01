@@ -26,9 +26,7 @@ Enter the Company UUID value in the concur.company.id property, and enter the Co
 The Local Identity Source job includes a property called idds.user.filter defaulted to a value of groups.display eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur. This property can be deleted if you are not using Joule Pilot Mode.
 
 
-# !!!IMPORTANT!!!
-
-Do not change or remove the property idds.group.filter displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode.
+> ⚠️ **Important:** Do not change or remove the property idds.group.filter displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode.
 
 ## Requirements
 You will need 
