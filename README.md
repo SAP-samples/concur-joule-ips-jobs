@@ -11,7 +11,7 @@ The jobs will first source users from Concur and create them in the local identi
 
 The files should be imported in numerical order. Note that there are PROD and TEST versions of the Concur Source and Concur Target jobs - use the PROD versions if you're working in your Concur production entity (entity ID starts with a "p") and use the TEST versions if you're working in your Concur production sandbox entity (test site - entity ID starts with a "t"). 
 
-After importing the both the Concur source and target jobs, there are two properties you will need to update:
+After importing both the Concur source and target jobs, there are two properties you will need to update:
 1) concur.company.id
 2) concur.authorization.code
 
@@ -23,10 +23,10 @@ in the App ID field and click Submit, and take note of the resulting Company UUI
 Enter the Company UUID value in the concur.company.id property, and enter the Company Request Token Value in the concur.authorization.code value.
 
 
-The Local Identity Source job includes a property called idds.user.filter defaulted to a value of groups.display eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur. This property can be deleted if you are not using Joule Pilot Mode.
+The Local Identity Source job includes a property called idds.user.filter defaulted to a value of **groups.display** eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur. This property can be deleted if you are not using Joule Pilot Mode.
 
 
-> ⚠️ **Important:** Do not change or remove the property idds.group.filter displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode.
+> ⚠️ **Important:** Do not change or remove the property **idds.group.filter** displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode.
 
 ## Requirements
 You will need 
