@@ -1,0 +1,94 @@
+{
+    "id": "7d25c82c-c312-4c3a-824d-070f4e57fdf3",
+    "connectorTypeString": "CONCUR",
+    "accessMode": "WRITE",
+    "destinationName": "",
+    "alias": "Concur_Target",
+    "relatedSystems": [
+        "Local_Identity_Source"
+    ],
+    "gitAllowedExpressions": [],
+    "gitDisallowedExpressions": [],
+    "emailSubscribers": [],
+    "name": "Concur_Target",
+    "state": "ENABLED",
+    "systemManagementType": "CUSTOMER_MANAGED",
+    "properties": {
+        "concur.user.unique.attribute": "userName",
+        "Authentication": "BasicAuthentication",
+        "concur.api.version": "3",
+        "concur.company.id": "UPDATE_ME",
+        "concur.datacenter": "US2",
+        "concur.support.patch.operation": "true",
+        "ips.patch.supported": "true",
+        "ips.trace.created.entity": "true",
+        "ips.trace.failed.entity.content": "true",
+        "ips.trace.skipped.entity": "true",
+        "ips.trace.skipped.entity.content": "true",
+        "ips.trace.updated.entity": "true",
+        "ips.trace.updated.entity.content": "true",
+        "ProxyType": "Internet",
+        "Type": "HTTP"
+    },
+    "encryptedProperties": {
+        "concur.authorization.code": null
+    },
+    "automaticOutboundCertificateRenew": false,
+    "transformationChanged": false,
+    "readTransformationChanged": false,
+    "writeTransformationChanged": false,
+    "fromImport": false,
+    "transformation": {
+        "user": {
+            "skipOperations": [
+                "create",
+                "delete"
+            ],
+            "mappings": [
+                {
+                    "sourceVariable": "entityIdTargetSystem",
+                    "targetPath": "$.id"
+                },
+                {
+                    "constant": [
+                        "urn:ietf:params:scim:schemas:core:2.0:User",
+                        "urn:ietf:params:scim:schemas:extension:sap:2.0:User",
+                        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                    ],
+                    "targetPath": "$.schemas"
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']"
+                },
+                {
+                    "sourcePath": "$.userName",
+                    "targetPath": "$.userName",
+                    "scope": "createEntity",
+                    "functions": [
+                        {
+                            "function": "concatString",
+                            "suffix": ".uat"
+                        }
+                    ]
+                },
+                {
+                    "sourcePath": "$.name.familyName",
+                    "targetPath": "$.name.familyName",
+                    "scope": "createEntity"
+                },
+                {
+                    "sourcePath": "$.name.givenName",
+                    "targetPath": "$.name.givenName",
+                    "scope": "createEntity"
+                },
+                {
+                    "sourcePath": "$.active",
+                    "targetPath": "$.active",
+                    "scope": "createEntity"
+                }
+            ]
+        }
+    },
+    "gitFetchAllowed": false
+}

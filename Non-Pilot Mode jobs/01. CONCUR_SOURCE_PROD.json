@@ -1,0 +1,85 @@
+{
+    "connectorTypeString": "CONCUR",
+    "accessMode": "READ",
+    "destinationName": "",
+    "alias": "Concur_Source",
+    "gitAllowedExpressions": [],
+    "gitDisallowedExpressions": [],
+    "emailSubscribers": [],
+    "name": "Concur_Source",
+    "state": "ENABLED",
+    "systemManagementType": "CUSTOMER_MANAGED",
+    "properties": {
+        "Authentication": "BasicAuthentication",
+        "concur.api.version": "3",
+        "concur.company.id": "UPDATE_ME",
+        "concur.datacenter": "US2",
+        "ips.trace.failed.entity.content": "true",
+        "ips.trace.updated.entity": "true",
+        "ips.trace.updated.entity.content": "true",
+        "ips.trace.created.entity": "true",
+        "ips.trace.skipped.entity": "true",
+        "ips.trace.skipped.entity.content": "true",
+        "ProxyType": "Internet",
+        "Type": "HTTP"
+    },
+    "encryptedProperties": {
+        "concur.authorization.code": null
+    },
+    "automaticOutboundCertificateRenew": false,
+    "transformationChanged": true,
+    "readTransformationChanged": false,
+    "writeTransformationChanged": false,
+    "fromImport": false,
+    "transformation": {
+        "user": {
+            "skipOperations": [
+                "delete"
+            ],
+            "condition": "!($.userName =~ /^cteadmin@.*/ || $.userName =~ /^concur_admin@.*/)",
+            "mappings": [
+                {
+                    "sourcePath": "$.id",
+                    "targetVariable": "entityIdSourceSystem"
+                },
+                {
+                    "sourcePath": "$.schemas",
+                    "preserveArrayWithSingleElement": true,
+                    "targetPath": "$.schemas"
+                },
+                {
+                    "sourcePath": "$.userName",
+                    "targetPath": "$.userName",
+                    "correlationAttribute": true
+                },
+                {
+                    "sourcePath": "$.name",
+                    "targetPath": "$.name"
+                },
+                {
+                    "targetPath": "$.name.honorificPrefix",
+                    "type": "remove"
+                },
+                {
+                    "sourcePath": "$.active",
+                    "targetPath": "$.active"
+                },
+                {
+                    "sourcePath": "$.emails",
+                    "preserveArrayWithSingleElement": true,
+                    "optional": true,
+                    "targetPath": "$.emails"
+                },
+                {
+                    "targetPath": "$.emails[*].notifications",
+                    "type": "remove"
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                    "optional": true,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "connectorTypeString": "LOCAL_IDENTITY_DIRECTORY_CC",
+    "accessMode": "WRITE",
+    "destinationName": "",
+    "alias": "Local_Identity_Target",
+    "relatedSystems": [
+        "Concur_Source"
+    ],
+    "gitAllowedExpressions": [],
+    "gitDisallowedExpressions": [],
+    "emailSubscribers": [],
+    "name": "Local_Identity_Target",
+    "state": "ENABLED",
+    "systemManagementType": "CUSTOMER_MANAGED",
+    "properties": {
+        "ips.trace.failed.entity.content": "true",
+        "ips.trace.updated.entity": "true",
+        "ips.trace.updated.entity.content": "true",
+        "ips.trace.created.entity": "true",
+        "ips.trace.skipped.entity": "true",
+        "ips.trace.skipped.entity.content": "true"
+    },
+    "encryptedProperties": {},
+    "automaticOutboundCertificateRenew": false,
+    "transformationChanged": false,
+    "readTransformationChanged": false,
+    "writeTransformationChanged": false,
+    "fromImport": false,
+    "transformation": {
+        "user": {
+            "condition": "($.emails EMPTY false) && ($.userName EMPTY false) && isValidEmail($.emails[0].value)",
+            "mappings": [
+                {
+                    "sourceVariable": "entityIdTargetSystem",
+                    "targetPath": "$.id"
+                },
+                {
+                    "constant": [
+                        "urn:ietf:params:scim:schemas:core:2.0:User",
+                        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+                        "urn:ietf:params:scim:schemas:extension:sap:2.0:User",
+                        "urn:sap:cloud:scim:schemas:extension:custom:2.0:User"
+                    ],
+                    "targetPath": "$.schemas"
+                },
+                {
+                    "sourcePath": "$.userName",
+                    "targetPath": "$.userName"
+                },
+                {
+                    "sourcePath": "$.emails",
+                    "preserveArrayWithSingleElement": true,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['emails']",
+                    "functions": [
+                        {
+                            "function": "putIfAbsent",
+                            "key": "verified",
+                            "defaultValue": true
+                        }
+                    ]
+                },
+                {
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['emails'][*]['type']",
+                    "type": "remove"
+                },
+                {
+                    "sourcePath": "$.emails[*].value",
+                    "preserveArrayWithSingleElement": true,
+                    "targetPath": "$.emails[?(@.value)]"
+                },
+                {
+                    "sourcePath": "$.name.givenName",
+                    "optional": true,
+                    "targetPath": "$.name.givenName"
+                },
+                {
+                    "sourcePath": "$.name.middleName",
+                    "optional": true,
+                    "targetPath": "$.name.middleName"
+                },
+                {
+                    "sourcePath": "$.name.familyName",
+                    "optional": true,
+                    "targetPath": "$.name.familyName"
+                },
+                {
+                    "sourcePath": "$.userType",
+                    "optional": true,
+                    "targetPath": "$.userType",
+                    "defaultValue": "employee"
+                },
+                {
+                    "sourcePath": "$.locale",
+                    "optional": true,
+                    "targetPath": "$.locale"
+                },
+                {
+                    "sourcePath": "$.active",
+                    "optional": true,
+                    "targetPath": "$.active",
+                    "defaultValue": true
+                },
+                {
+                    "sourcePath": "$['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User']['employeeNumber']",
+                    "optional": true,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User']['employeeNumber']"
+                },
+                {
+                    "constant": false,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['sendMail']",
+                    "scope": "createEntity"
+                },
+                {
+                    "constant": true,
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['mailVerified']"
+                },
+                {
+                    "constant": "enabled",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['passwordDetails']['status']",
+                    "scope": "createEntity"
+                },
+                {
+                    "sourcePath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:User']['attributes']",
+                    "preserveArrayWithSingleElement": true,
+                    "optional": true,
+                    "targetPath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:User']['attributes']"
+                },
+                {
+                    "ignore": true,
+                    "constant": "<your-initial-password>",
+                    "targetPath": "$.password",
+                    "scope": "createEntity"
+                },
+                {
+                    "ignore": true,
+                    "constant": "<your-source-system-type-code>",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['sourceSystem']",
+                    "scope": "createEntity"
+                },
+                {
+                    "ignore": true,
+                    "constant": "<your-source-system-id>",
+                    "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['sourceSystemId']",
+                    "scope": "createEntity"
+                }
+            ]
+        }
+    },
+    "gitFetchAllowed": false
+}
