@@ -3,7 +3,7 @@
 
 ## Description
 <!-- Please include SEO-friendly description -->
-These are pre-configured provisioning jobs that you can import into Identity Provisioning. They require minimal configuration, based on your specific needs. These are intended for use when Joule Pilot Mode does  need to be used - the transformations include a group section that's required for syncing the Joule Pilot User Group. See [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) for more information.
+These are pre-configured provisioning jobs that you can import into Identity Provisioning. They require minimal configuration, based on your specific needs. These are intended for use when Joule Pilot Mode does  need to be used - the transformations include a group section that's required for syncing the Joule Pilot User Group. See [Joule Pilot Mode ↗](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) for more information.
 
 The jobs will first source users from Concur and create them in the local identity directory of your Cloud Identity instance. They will then provision the SAP Global ID back to the corresponding user in Concur. The Global ID is a prerequisite for using Joule and Task Center.
 
@@ -40,12 +40,12 @@ No known issues
 
 ## How to obtain support
 For complete documentation on these provisioning jobs, refer to the SAP Help portal:
-1) [SAP Concur Source System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/sap-concur?locale=en-US&version=LATEST)
-2) [Local Identity Directory Source System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/local-identity-directory?locale=en-US&version=LATEST)
-3) [Local Identity Directory Target System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-local-identity-directory?locale=en-US&version=LATEST)
-4) [SAP Concur Target System](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-concur?locale=en-US&version=LATEST)
+1) [SAP Concur Source System ↗](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/sap-concur?locale=en-US&version=LATEST)
+2) [Local Identity Directory Source System ↗](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/local-identity-directory?locale=en-US&version=LATEST)
+3) [Local Identity Directory Target System ↗](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-local-identity-directory?locale=en-US&version=LATEST)
+4) [SAP Concur Target System ↗](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-concur?locale=en-US&version=LATEST)
 
-If you need additional support with provisioning jobs, create a case with SAP Support using the component "BC-IAM-IPS". See [note 1296527](https://me.sap.com/notes/1296527/E) for additional details about how to create a support case.
+If you need additional support with provisioning jobs, create a case with SAP Support using the component "BC-IAM-IPS". See [note 1296527 ↗](https://me.sap.com/notes/1296527/E) for additional details about how to create a support case.
 
 ## Contributing
 This repository is provided "as-is".
