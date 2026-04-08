@@ -9,24 +9,7 @@
 These are pre-configured provisioning jobs that you can import into Identity Provisioning. They require minimal configuration, based on your specific needs.
 The jobs will first source users from Concur and create them in the local identity directory of your Cloud Identity instance. They will then provision the SAP Global ID back to the corresponding user in Concur. The Global ID is a prerequisite for using Joule and Task Center.
 
-The files should be imported in numerical order. Note that there are PROD and TEST versions of the Concur Source and Concur Target jobs - use the PROD versions if you're working in your Concur production entity (entity ID starts with a "p") and use the TEST versions if you're working in your Concur production sandbox entity (test site - entity ID starts with a "t"). 
-
-After importing both the Concur source and target jobs, there are two properties you will need to update:
-1) concur.company.id
-2) concur.authorization.code
-
-The values needed for these fields can be obtained by logging into Concur with an admin user and navigating to Administation -> Company -> Authentication Admin and then clicking on Company Request Token. Enter 
-
-> **5bea7d57-6bc5-45ba-b5cf-91f04940fbf2**
-
-in the App ID field and click Submit, and take note of the resulting Company UUID and Company Request Token Values.
-Enter the Company UUID value in the concur.company.id property, and enter the Company Request Token Value in the concur.authorization.code value.
-
-
-The Local Identity Source job includes a property called **idds.user.filter** defaulted to a value of groups.display eq "Joule Pilot User". This is intended to be used with [Joule Pilot Mode](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) and will limit only users assigned to the Joule Pilot Group to be synced to Concur. This property can be deleted if you are not using Joule Pilot Mode.
-
-
-> ⚠️ **Important:** Do not change or remove the property **idds.group.filter** displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode.
+More detailed information for using the jobs can be found in the corresponding directories.
 
 ## Requirements
 You will need 
