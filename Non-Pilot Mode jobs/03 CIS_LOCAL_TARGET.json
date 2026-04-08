@@ -28,6 +28,9 @@
     "fromImport": false,
     "transformation": {
         "user": {
+            "skipOperations": [
+                "delete"
+            ],
             "condition": "($.emails EMPTY false) && ($.userName EMPTY false) && isValidEmail($.emails[0].value)",
             "mappings": [
                 {
