@@ -25,6 +25,7 @@ The Local Identity Source job includes a property called **idds.user.filter** de
 
 
 > ⚠️ **Important:** Even if you have disabled Pilot Mode, DO NOT EVER CHANGE OR REMOVE the property **idds.group.filter** displayName eq "Joule Pilot User" for any job! This property and filter needs to remain in place even if you are not using Joule Pilot Mode or you risk impacting role assignments in Concur. CHANGING OR REMOVING THIS FILTER RISKS IRREVERABLE LOSS OF DATA!
+![Pilot Filters Screenshot](../images/Pilot_Filters.jpg)
 
 ## Requirements
 You will need 
