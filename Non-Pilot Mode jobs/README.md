@@ -26,7 +26,6 @@ You will need
 
 
 ## Known Issues
-<!-- You may simply state "No known issues. -->
 No known issues
 
 ## How to obtain support

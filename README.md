@@ -1,11 +1,9 @@
 # SAP Cloud Identity Services - IPS Jobs for SAP Concur
-<!-- Please include descriptive title -->
 
 [![REUSE status](https://api.reuse.software/badge/github.com/sap-samples/concur-joule-ips-jobs)](https://api.reuse.software/info/github.com/sap-samples/concur-joule-ips-jobs)
 
 
 ## Description
-<!-- Please include SEO-friendly description -->
 These are pre-configured provisioning jobs that you can import into Identity Provisioning. They require minimal configuration, based on your specific needs.
 The jobs will first source users from Concur and create them in the local identity directory of your Cloud Identity instance. They will then provision the SAP Global ID back to the corresponding user in Concur. The Global ID is a prerequisite for using Joule and Task Center.
 
@@ -19,7 +17,6 @@ You will need
 
 
 ## Known Issues
-<!-- You may simply state "No known issues. -->
 No known issues
 
 ## How to obtain support

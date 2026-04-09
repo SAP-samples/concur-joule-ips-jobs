@@ -2,7 +2,6 @@
 
 
 ## Description
-<!-- Please include SEO-friendly description -->
 These are pre-configured provisioning jobs that you can import into Identity Provisioning. They require minimal configuration, based on your specific needs. These are intended for use when Joule Pilot Mode does  need to be used - the transformations include a group section that's required for syncing the Joule Pilot User Group. See [Joule Pilot Mode ↗](https://help.sap.com/docs/joule/integrating-joule/joule-selective-access-pilot-mode-onboarding-overview?version=DEV&state=DRAFT) for more information.
 
 The jobs will first source users from Concur and create them in the local identity directory of your Cloud Identity instance. They will then provision the SAP Global ID back to the corresponding user in Concur. The Global ID is a prerequisite for using Joule and Task Center.
@@ -35,7 +34,6 @@ You will need
 
 
 ## Known Issues
-<!-- You may simply state "No known issues. -->
 No known issues
 
 ## How to obtain support
