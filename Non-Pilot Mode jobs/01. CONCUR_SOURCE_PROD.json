@@ -15,6 +15,7 @@
         "concur.company.id": "UPDATE_ME",
         "concur.datacenter": "US2",
         "ips.trace.failed.entity.content": "true",
+        "concur.user.filter": "active eq true",
         "ips.trace.updated.entity": "true",
         "ips.trace.updated.entity.content": "true",
         "ips.trace.created.entity": "true",

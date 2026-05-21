@@ -15,6 +15,7 @@
         "concur.company.id": "UPDATE_ME",
         "concur.datacenter": "US2",
         "concur.group.filter": "displayName eq \"Joule Pilot User\"",
+        "concur.user.filter": "active eq true",
         "ips.trace.failed.entity.content": "true",
         "ips.trace.updated.entity": "true",
         "ips.trace.updated.entity.content": "true",
