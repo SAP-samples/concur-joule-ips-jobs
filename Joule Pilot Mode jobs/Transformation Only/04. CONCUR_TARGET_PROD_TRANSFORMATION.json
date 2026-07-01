@@ -1,0 +1,76 @@
+{
+    "user": {
+        "skipOperations": [
+            "create",
+            "delete"
+        ],
+        "mappings": [
+            {
+                "sourceVariable": "entityIdTargetSystem",
+                "targetPath": "$.id"
+            },
+            {
+                "constant": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:sap:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                ],
+                "targetPath": "$.schemas"
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']"
+            },
+            {
+                "sourcePath": "$.userName",
+                "targetPath": "$.userName",
+                "scope": "createEntity"
+            },
+            {
+                "sourcePath": "$.name.familyName",
+                "targetPath": "$.name.familyName",
+                "scope": "createEntity"
+            },
+            {
+                "sourcePath": "$.name.givenName",
+                "targetPath": "$.name.givenName",
+                "scope": "createEntity"
+            },
+            {
+                "sourcePath": "$.active",
+                "targetPath": "$.active",
+                "scope": "createEntity"
+            }
+        ]
+    },
+    "group": {
+        "mappings": [
+            {
+                "sourceVariable": "entityIdTargetSystem",
+                "targetPath": "$.id"
+            },
+            {
+                "constant": [
+                    "urn:ietf:params:scim:schemas:core:2.0:Group",
+                    "urn:ietf:params:scim:schemas:extension:sap:2.0:Group"
+                ],
+                "targetPath": "$.schemas"
+            },
+            {
+                "sourcePath": "$.displayName",
+                "targetPath": "$.displayName"
+            },
+            {
+                "sourcePath": "$.members[*].value",
+                "preserveArrayWithSingleElement": true,
+                "optional": true,
+                "targetPath": "$.members[?(@.value)]",
+                "functions": [
+                    {
+                        "function": "resolveEntityIds"
+                    }
+                ]
+            }
+        ]
+    }
+}
